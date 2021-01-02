@@ -35,6 +35,9 @@ body {
   padding-bottom: 20px;
   border-radius: 10px;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #antet h1 {
@@ -52,6 +55,8 @@ body {
   background-color: #F7FFF7;
   padding: 40px;
   border-radius: 10px;
+  
+  
 }
 
 .menu {
@@ -64,6 +69,30 @@ body {
   left: 0px;
   margin: 20px;
   font-size: 20px;
+}
+
+.menu-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #464D77;
+}
+
+.menu-list li {
+  float: left;
+}
+
+.menu-list li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.menu-list li a:hover {
+  background-color:rgba(0, 0, 0, 0.1);
 }
 
 .menu div {

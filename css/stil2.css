@@ -35,6 +35,9 @@ html {
     padding-bottom: 20px;
     border-radius: 10px;
   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   #antet h1 {
@@ -54,6 +57,30 @@ html {
     border-radius: 10px;
   }
   
+  .menu-list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #D1AC00;
+  }
+  
+  .menu-list li {
+    float: left;
+  }
+  
+  .menu-list li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .menu-list li a:hover {
+    background-color:rgba(0, 0, 0, 0.1);
+  }
+
   .menu {
     /* background-color: white; */
     padding: 20px 20px;
@@ -74,7 +101,7 @@ html {
   }
   
   .menu div a:hover {
-    background-color: green;
+    background-color:rgba(0, 0, 0, 0.2);;
   }
   
   .menu div a {

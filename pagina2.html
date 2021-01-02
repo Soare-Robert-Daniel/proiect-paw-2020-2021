@@ -14,23 +14,55 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/stil2.css" />
+
+    <style>
+        .doua-coloane {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .doua-coloane {
+                grid-template-columns: auto;
+            }
+        }
+
+        #truc-btn {
+            background-color: blanchedalmond;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 3px;
+            box-shadow: 8px 8px;
+        }
+
+        #truc-btn:hover {
+            box-shadow: 5px 5px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="antet">
         <h1>Bun venit în lumea memeurilor</h1>
         <p>Cele mai bune meme-uri din toata galaxia. </p>
-    </div>
-    <nav class="menu">
         <div>
-            <a href="./index.html">Acasa</a>
-            <p>|</p>
-            <a href="./pagina1.html">Ce este un meme?</a>
-            <p>|</p>
-            <a href="./pagina2.html">Top Site-uri</a>
+            <button onclick='schimbaCuloare("main", "rgb(255, 255, 0)")'>Schimba culoarea</button>
         </div>
-    </nav>
+    </div>
 
+
+    <nav class="menu-list">
+        <ul>
+            <li><a href="./index.html">Acasa</a></li>
+            <li><a>|</a></li>
+            <li><a href="./pagina1.html">Ce este un meme?</a></li>
+            <li><a>|</a></li>
+            <li><a href="./pagina2.html">Top Site-uri</a></li>
+            <li><a>|</a></li>
+            <li><a href="./dashboard.html">Panou de control</a></li>
+        </ul>
+    </nav>
 
     <div id="main">
         <h3>Plictisit deja de acest site? No problema senor</h3>
@@ -88,10 +120,38 @@
             </tr>
 
         </table>
+        <button id="truc-btn" onclick="douaColoane()">Apasa ca sa vezi un truc!</button>
     </div>
     <footer>
         <p>Copyright FSA gr.1342b 2020-2021</p>
     </footer>
+    <script src="./js/utilitati.js"></script>
+
+    <script>
+        let suntIn2Coloane = false;
+        function douaColoane() {
+            if (suntIn2Coloane) {
+                document.querySelector("body").removeChild(document.querySelector("#truc"));
+                document.querySelector("#antet").style.display = "flex";
+                document.querySelector("#main").style.display = "block";
+                suntIn2Coloane = false;
+            } else {
+                const container = document.createElement("div");
+                container.id = "truc"
+
+                container.append(document.querySelector("#antet").cloneNode(true));
+                container.append(document.querySelector("#main").cloneNode(true));
+
+                container.classList.add("doua-coloane");
+                document.querySelector("#antet").style.display = "none";
+                document.querySelector("#main").style.display = "none";
+
+                document.body.insertBefore(container, document.querySelector("footer"));
+                suntIn2Coloane = true;
+            }
+        }
+    </script>
+
 </body>
 
 </html>

@@ -20,24 +20,30 @@
     <div id="antet">
         <h1>Bun venit în lumea memeurilor</h1>
         <p>Cele mai bune meme-uri din toata galaxia. </p>
-    </div>
-    <nav class="menu">
         <div>
-            <a href="./index.html">Acasa</a>
-            <p>|</p>
-            <a href="./pagina1.html">Ce este un meme?</a>
-            <p>|</p>
-            <a href="./pagina2.html">Top Site-uri</a>
+            <button onclick='schimbaCuloare("main", "rgb(255, 255, 0)")'>Schimba culoarea</button>
         </div>
-    </nav>
+    </div>
 
+    <nav class="menu-list">
+        <ul>
+            <li><a href="./index.html">Acasa</a></li>
+            <li><a>|</a></li>
+            <li><a href="./pagina1.html">Ce este un meme?</a></li>
+            <li><a>|</a></li>
+            <li><a href="./pagina2.html">Top Site-uri</a></li>
+            <li><a>|</a></li>
+            <li><a href="./dashboard.html">Panou de control</a></li>
+        </ul>
+    </nav>
 
     <div id="main">
         <h4>Ce este meme?</h4>
         <p>Un meme este o idee sau tipar comportamental care se răspândește prin imitație în cadrul unui grup social. O
             idee, de obicei hazlie, materializată într-o imagine, un clip sau un text, care se răspândește prin
             intermediul internetului. </p>
-        <img srcset="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2s9cjb-1548710537.jpg" />
+        <img id="alb-negru"
+            srcset="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2s9cjb-1548710537.jpg" />
         <h4>Motive pentru care ai creea un meme</h4>
         <ul>
             <li>Pentru amuzament</li>
@@ -59,6 +65,16 @@
     <footer>
         <p>Copyright FSA gr.1342b 2020-2021</p>
     </footer>
+    <script src="./js/utilitati.js"></script>
+    <script>
+        document.querySelector("#alb-negru").addEventListener("mouseenter", function (event) {
+            event.target.style.filter = "grayscale(100%)";
+        });
+        document.querySelector("#alb-negru").addEventListener("mouseout", function (event) {
+            event.target.style.filter = null;
+        });
+    </script>
+
 </body>
 
 </html>
