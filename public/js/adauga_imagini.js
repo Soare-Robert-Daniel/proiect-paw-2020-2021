@@ -1,3 +1,4 @@
+
 const lista_memes = [
 	{
 		"src": "https://www.reddit.com/r/memes/comments/gyfedz/a_short_story/",
@@ -33,41 +34,64 @@ const lista_memes = [
 	},
 ];
 
-function preia_imagini_server() {
-	fetch('http://localhost:3000/api/v1/memes')
-		.then(res => res.json())
-		.then(data => console.log(data));
+async function preia_imagini_server() {
+	const res = await fetch('http://localhost:3000/api/v1/memes')
+	return JSON.parse(await res.json())
+}
+
+function creazaMemeCard(src, src_img) {
+	const meme = document.createElement("div");
+	meme.classList.add("card")
+
+	const img = document.createElement("img");
+	img.src = src_img;
+	meme.appendChild(img);
+
+	const container = document.createElement("div");
+	container.classList.add("container")
+
+	if (src) {
+
+		const text = document.createElement("p");
+		text.innerHTML = "Sursă:"
+		const link_sursa = document.createElement("a");
+		link_sursa.href = src;
+		link_sursa.innerHTML = "sursa";
+
+
+		container.appendChild(text);
+		container.appendChild(link_sursa);
+	}
+
+	meme.appendChild(container);
+
+	return meme
 }
 
 window.onload = () => {
 
-	preia_imagini_server();
-
 	const lista_memes_root = document.querySelector('#lista-memes');
-	if(! lista_memes_root) {
+	if (!lista_memes_root) {
 		console.log("Lista de meme-uri nu a fost gasita in pagina!");
 		return
 	}
 
-	lista_memes.map( (x) => {
-		const meme = document.createElement("div");
-		meme.classList.add("card")
-
-		const img = document.createElement("img");
-		img.src = x["src_img"];
-		meme.appendChild(img);
-
-		const container = document.createElement("div");
-		container.classList.add("container")
-		const text = document.createElement("p");
-		text.innerHTML = "Sursă:"
-		const link_sursa = document.createElement("a");
-		link_sursa.href= x["src"];
-		link_sursa.innerHTML = "original";
-		container.appendChild(text);
-		container.appendChild(link_sursa);
-
-		meme.appendChild(container);
+	lista_memes.map((x) => {
+		const meme = creazaMemeCard(x.src, x.src_img)
 		lista_memes_root.appendChild(meme);
 	});
+
+	async function adauga_continut_utilizator() {
+		const lista_memes_server = await preia_imagini_server();
+
+		console.log(typeof lista_memes_server)
+
+
+		lista_memes_server.map((x) => {
+			const meme = creazaMemeCard(x.src, x.src_img)
+			lista_memes_root.appendChild(meme);
+		});
+	}
+
+	adauga_continut_utilizator()
 }

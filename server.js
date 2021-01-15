@@ -37,10 +37,13 @@ app.get('/pagina2.html', function (req, res) {
     res.sendFile(path.join(__dirname + '/pagina2.html'));
 });
 
+app.get('/logare.html', function (req, res) {
+    res.sendFile(path.join(__dirname + '/logare.html'));
+});
+
 app.get('/dashboard.html', function (req, res) {
     res.sendFile(path.join(__dirname + '/dashboard.html'));
 });
-
 /**
  * API - Lucrul cu baza de date
  */
@@ -52,10 +55,12 @@ app.get('/api/v1/memes', async function (req, res) {
 
 /** Adauga un meme */
 app.post('/api/v1/meme/add', async function (req, res) {
-    const { src, src_img } = req.body;
+    const { src, src_img, alt } = req.body;
+    console.log(req.body)
     const meme = await db.memesTable.create({
         src,
-        src_img
+        src_img,
+        alt
     });
     res.json(meme.toJSON())
 });
@@ -73,10 +78,12 @@ app.get('/api/v1/meme/:id/delete', async function (req, res) {
 
 /** Modifica un meme */
 app.post('/api/v1/meme/:id/update', async function (req, res) {
-    const { src, src_img } = req.body;
+    const { src, src_img, alt } = req.body;
+    console.log(req.body)
     const meme = await db.memesTable.update({
         src,
-        src_img
+        src_img,
+        alt
     }, {
         where: {
             id: req.params.id

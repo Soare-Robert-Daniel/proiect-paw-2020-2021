@@ -14,10 +14,12 @@ services:
       MYSQL_USER: pwa
       MYSQL_PASSWORD: pwa
   pwa_app:
-    image: robert/pwa
     depends_on:
       - pwa_db
     restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/usr/src/app
     ports:

@@ -19,6 +19,9 @@ const Memes = sequelize.define('Memes', {
     src_img: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    alt: {
+        type: DataTypes.STRING
     }
 }, {
     freezeTableName: true
