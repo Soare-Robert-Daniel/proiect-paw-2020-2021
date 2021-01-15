@@ -44,11 +44,13 @@ app.get('/dashboard.html', function (req, res) {
 /**
  * API - Lucrul cu baza de date
  */
+/** Preia toate meme-urle */
 app.get('/api/v1/memes', async function (req, res) {
     const memes = await db.memesTable.findAll()
     res.json(JSON.stringify(memes, null, 2))
 });
 
+/** Adauga un meme */
 app.post('/api/v1/meme/add', async function (req, res) {
     const { src, src_img } = req.body;
     const meme = await db.memesTable.create({
@@ -58,6 +60,30 @@ app.post('/api/v1/meme/add', async function (req, res) {
     res.json(meme.toJSON())
 });
 
+/** Sterge un meme */
+app.get('/api/v1/meme/:id/delete', async function (req, res) {
+    const result = await db.memesTable.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+
+    res.send('Meme a fost distrus! DB raspuns: ' + result)
+})
+
+/** Modifica un meme */
+app.post('/api/v1/meme/:id/update', async function (req, res) {
+    const { src, src_img } = req.body;
+    const meme = await db.memesTable.update({
+        src,
+        src_img
+    }, {
+        where: {
+            id: req.params.id
+        }
+    });
+    res.json(JSON.stringify(meme))
+})
 
 const server = http.createServer(app)
 server.listen(3000);
