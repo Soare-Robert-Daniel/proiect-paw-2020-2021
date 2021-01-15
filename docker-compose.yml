@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+  pwa_db:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: pwa
+      MYSQL_DATABASE: pwa
+      MYSQL_USER: pwa
+      MYSQL_PASSWORD: pwa
+  pwa_app:
+    image: robert/pwa
+    depends_on:
+      - pwa_db
+    restart: always
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 3000:3000
+    environment:
+      DB_NAME: pwa
+      DB_USER: pwa
+      DB_PASSWORD: pwa
+      DB_ROOT_PASSWORD: pwa

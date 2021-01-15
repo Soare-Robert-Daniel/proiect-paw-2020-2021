@@ -54,7 +54,8 @@ body {
 #main {
   background-color: #F7FFF7;
   padding: 40px;
-  border-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   
   
 }

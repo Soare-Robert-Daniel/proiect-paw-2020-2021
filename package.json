@@ -1,0 +1,33 @@
+{
+  "name": "proiect-paw-2020-2021",
+  "version": "1.0.0",
+  "description": "Proiect pentru examen",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soare-Robert-Daniel/proiect-paw-2020-2021.git"
+  },
+  "keywords": [
+    "facultate",
+    "proiect",
+    "web"
+  ],
+  "author": "Soare Robert Daniel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Soare-Robert-Daniel/proiect-paw-2020-2021/issues"
+  },
+  "homepage": "https://github.com/Soare-Robert-Daniel/proiect-paw-2020-2021#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.6"
+  }
+}

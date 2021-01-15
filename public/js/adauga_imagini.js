@@ -33,7 +33,16 @@ const lista_memes = [
 	},
 ];
 
+function preia_imagini_server() {
+	fetch('http://localhost:3000/api/v1/memes')
+		.then(res => res.json())
+		.then(data => console.log(data));
+}
+
 window.onload = () => {
+
+	preia_imagini_server();
+
 	const lista_memes_root = document.querySelector('#lista-memes');
 	if(! lista_memes_root) {
 		console.log("Lista de meme-uri nu a fost gasita in pagina!");
