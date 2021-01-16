@@ -187,6 +187,7 @@ footer {
   margin: 30px;
   width: 80%;
   text-align: center;
+  background-color: #f7f7ff;
 }
 
 .admin-tabel thead th {
@@ -204,6 +205,10 @@ footer {
   width: 30px;
   text-align: right;
   font-family: "IBM Plex Mono", monospace;
+}
+
+.admin-tabel tbody td img {
+  max-width: 100px;
 }
 
 .admin-tabel caption {
@@ -250,7 +255,7 @@ footer {
 }
 
 .buton-modificare {
-  margin-left: 5px;
+  margin: 5px;
   background-color: yellow;
   padding: 7px;
   border: 1px solid black;
@@ -258,7 +263,7 @@ footer {
 }
 
 .buton-stergere {
-  margin-left: 5px;
+  margin: 5px;
   background-color: red;
   padding: 7px;
   font-size: 15px;

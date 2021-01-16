@@ -93,6 +93,8 @@ async function adaugaDateTabel() {
     tabel.appendChild(tbody)
 }
 
+
+
 async function initializareButonSalvare() {
     const salvare = document.querySelector('#buton-salvare')
     const src = document.querySelector('#sursa-input')
@@ -109,23 +111,35 @@ async function initializareButonSalvare() {
                 alert('Link-ul imaginii nu trebuie sa fie gol!')
                 return
             }
+            /*
+                Verifica daca link-ul valid prin incarcarea sa intr-un obiect de tip imagine
+            */
+            const img = document.createElement('img')
 
-            fetch(`http:\\\\localhost:3000\\api\\v1\\meme\\add`, {
-                method: 'POST',
-                mode: 'cors',
-                credentials: 'same-origin',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    src: src.value,
-                    src_img: src_img.value,
-                    alt: alt.value
+            img.onload = function () {
+                fetch(`http:\\\\localhost:3000\\api\\v1\\meme\\add`, {
+                    method: 'POST',
+                    mode: 'cors',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        src: src.value,
+                        src_img: src_img.value,
+                        alt: alt.value
+                    })
+                }).then(() => adaugaDateTabel()).catch((err) => {
+                    alert("Nu s-au putut trimit datele!")
+                    console.log(err)
                 })
-            }).then(() => adaugaDateTabel()).catch((err) => {
-                alert("Nu s-au putut trimit datele!")
-                console.log(err)
-            })
+            }
+
+            img.onerror = function () {
+                alert('Link-ul imaginii nu este valid!');
+            }
+
+            img.src = src_img.value
         }
     } else {
         console.log('Formularul nu este prezent in pagina')
@@ -147,22 +161,36 @@ async function initializareButonModificare() {
             return
         }
 
-        fetch(`http:\\\\localhost:3000\\api\\v1\\meme\\${id.value}\\update`, {
-            method: 'POST',
-            mode: 'cors',
-            credentials: 'same-origin',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                src: src.value,
-                src_img: src_img.value,
-                alt: alt.value
+
+        /*
+            Verifica daca link-ul valid prin incarcarea sa intr-un obiect de tip imagine
+        */
+        const img = document.createElement('img')
+
+        img.onload = function () {
+            fetch(`http:\\\\localhost:3000\\api\\v1\\meme\\${id.value}\\update`, {
+                method: 'POST',
+                mode: 'cors',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    src: src.value,
+                    src_img: src_img.value,
+                    alt: alt.value
+                })
+            }).then(() => adaugaDateTabel()).catch((err) => {
+                alert("Nu s-au putut trimit datele!")
+                console.log(err)
             })
-        }).then(() => adaugaDateTabel()).catch((err) => {
-            alert("Nu s-au putut trimit datele!")
-            console.log(err)
-        })
+        }
+
+        img.onerror = function () {
+            alert('Link-ul imaginii nu este valid!');
+        }
+
+        img.src = src_img.value
     }
 }
 

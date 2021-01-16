@@ -56,7 +56,7 @@ function creazaMemeCard(src, src_img) {
 		text.innerHTML = "Sursă:"
 		const link_sursa = document.createElement("a");
 		link_sursa.href = src;
-		link_sursa.innerHTML = "sursa";
+		link_sursa.innerHTML = "origine";
 
 
 		container.appendChild(text);
