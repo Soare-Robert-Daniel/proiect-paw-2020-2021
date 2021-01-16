@@ -45,22 +45,45 @@
     </nav>
 
     <div id="main">
-      <form class="formular">
-        <div class="optiune-forumar">
+      <form class="formular adauga">
+        <h3>Adauga un meme</h3>
+        <hr />
+        <div class="optiune-formular">
           <label>Sursa</label>
           <input id="sursa-input" name="src" />
         </div>
-        <div>
+        <div class="optiune-formular">
           <label>Link imagine</label>
           <input id="link-input" name="src_img" />
         </div>
-        <div>
+        <div class="optiune-formular">
           <label>Descriere</label>
           <input id="descriere-input" name="alt" />
         </div>
         <button id="buton-salvare" type="submit">Salveaza</button>
       </form>
-      <table id="admin-lista"></table>
+      <form class="formular modifica">
+        <h3>Modifica un meme</h3>
+        <hr />
+        <div class="optiune-formular">
+          <label>Id</label>
+          <input id="id-input-mod" name="id" />
+        </div>
+        <div class="optiune-formular">
+          <label>Sursa</label>
+          <input id="sursa-input-mod" name="src" />
+        </div>
+        <div class="optiune-formular">
+          <label>Link imagine</label>
+          <input id="link-input-mod" name="src_img" />
+        </div>
+        <div class="optiune-formular">
+          <label>Descriere</label>
+          <input id="descriere-input-mod" name="alt" />
+        </div>
+        <button id="buton-modificare" type="submit">Modifica</button>
+      </form>
+      <table class="admin-tabel" id="admin-lista"></table>
     </div>
     <footer>
       <p>Copyright FSA gr.1342b 2020-2021</p>

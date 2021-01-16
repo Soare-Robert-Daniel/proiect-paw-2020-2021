@@ -7,7 +7,7 @@ Culoare 4:
 */
 
 html {
-  background-color: #F4EDED;
+  background-color: #f4eded;
 }
 
 a {
@@ -16,7 +16,7 @@ a {
 
 body {
   padding: 20px;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -24,13 +24,13 @@ body {
     padding-left: 20%;
     padding-right: 20%;
 
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
   }
 }
 
 #antet {
   margin: 50px;
-  background-color: #F9DB6D;
+  background-color: #f9db6d;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 10px;
@@ -52,12 +52,10 @@ body {
 }
 
 #main {
-  background-color: #F7FFF7;
+  background-color: #f7fff7;
   padding: 40px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  
-  
 }
 
 .menu {
@@ -77,7 +75,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #464D77;
+  background-color: #464d77;
 }
 
 .menu-list li {
@@ -93,12 +91,12 @@ body {
 }
 
 .menu-list li a:hover {
-  background-color:rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .menu div {
   width: max-content;
-  background-color: #464D77;
+  background-color: #464d77;
   margin: 0;
   display: inline-flex;
 }
@@ -165,7 +163,8 @@ table {
   width: max-content;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -179,5 +178,95 @@ footer {
   margin-top: 20px;
   padding: 10px;
   border-radius: 10px;
-  background-color: #DAE3E5;
+  background-color: #dae3e5;
+}
+
+.admin-tabel {
+  border: 2px solid black;
+  border-collapse: collapse;
+  margin: 30px;
+  width: 80%;
+  text-align: center;
+}
+
+.admin-tabel thead th {
+  text-align: center;
+  font-size: 20px;
+}
+
+.admin-tabel tbody td {
+  min-width: 50px;
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.admin-tabel tbody th {
+  width: 30px;
+  text-align: right;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.admin-tabel caption {
+  font-size: 30px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.modifica {
+  background: #dae3e5;
+}
+
+.adauga {
+  background-color: #f7f9f7;
+}
+
+.formular {
+  margin: 30px;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.optiune-formular {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.optiune-formular input {
+  border: 1px solid black;
+  font-family: "IBM Plex Mono", monospace;
+  padding: 5px;
+}
+
+.formular button {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  max-width: 120px;
+  margin: 5px;
+}
+
+.buton-modificare {
+  margin-left: 5px;
+  background-color: yellow;
+  padding: 7px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.buton-stergere {
+  margin-left: 5px;
+  background-color: red;
+  padding: 7px;
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+}
+
+hr {
+  width: 100%;
 }

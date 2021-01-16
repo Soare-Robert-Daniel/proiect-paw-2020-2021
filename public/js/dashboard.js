@@ -9,22 +9,22 @@ function creazaRandTabel(dateRand) {
     const rand = document.createElement('tr');
 
     // adauga date
-    rand.innerHTML = `
-        <td>
+    rand.innerHTML = `   
+        <th class="id-tabel">
             ${dateRand.id}
-        </td>
+        </th>
         <td>
             <a href="${dateRand.src || ""}">${dateRand.src || "-"}</a>  
         </td>
         <td>
-            <img srcset="${dateRand.src_img}" alt="${dateRand.alt || " "}"  
+            <img srcset="${dateRand.src_img}" alt="${dateRand.alt || " "}"  />
         </td>
         <td>
             ${dateRand.alt || "-"}  
         </td>
     `;
 
-    // adauga butoane
+    // buton de stergere
     const stergere = document.createElement('button');
     stergere.classList.add('buton-stergere')
     stergere.textContent = "Stergere"
@@ -33,9 +33,26 @@ function creazaRandTabel(dateRand) {
             () => adaugaDateTabel()
         )
     }
+    // buton the modificare
+    const modificare = document.createElement('button');
+    modificare.textContent = "Modifica"
+    modificare.classList.add('buton-modificare')
+    modificare.onclick = function () {
+        const id = document.querySelector('#id-input-mod')
+        const src = document.querySelector('#sursa-input-mod')
+        const src_img = document.querySelector('#link-input-mod')
+        const alt = document.querySelector('#descriere-input-mod')
+
+        id.value = dateRand.id;
+        src.value = dateRand.src;
+        src_img.value = dateRand.src_img;
+        alt.value = dateRand.alt;
+
+    }
 
     const grup = document.createElement('td');
     grup.appendChild(stergere)
+    grup.appendChild(modificare)
 
     rand.appendChild(grup)
     return rand;
@@ -43,6 +60,7 @@ function creazaRandTabel(dateRand) {
 
 async function adaugaDateTabel() {
     const tabel = document.querySelector('#admin-lista')
+    const tbody = document.createElement('tbody')
 
     if (!tabel) {
         console.log("Nu exista tabel!")
@@ -54,24 +72,28 @@ async function adaugaDateTabel() {
 
     // adauga antet
     tabel.innerHTML = `
-        <tr>
-          <td>ID</td>
-          <td>src</td>
-          <td>src_img</td>
-          <td>alt_img</td>
-          <td>Actiuni</td>
-        </tr>
+        <caption> Baza de date </caption>
+        <thead>
+            <tr>
+            <th class="id-tabel">ID</th>
+            <th>src</th>
+            <th>src_img</th>
+            <th>alt_img</th>
+            <th>Actiuni</th>
+            </tr>
+        </thead>
     `
 
     const date_server = await preia_date_server()
 
     date_server.map(dateRand => {
         const rand = creazaRandTabel(dateRand)
-        tabel.appendChild(rand)
+        tbody.appendChild(rand)
     })
+    tabel.appendChild(tbody)
 }
 
-async function initilizareButonSalver() {
+async function initializareButonSalvare() {
     const salvare = document.querySelector('#buton-salvare')
     const src = document.querySelector('#sursa-input')
     const src_img = document.querySelector('#link-input')
@@ -110,7 +132,42 @@ async function initilizareButonSalver() {
     }
 }
 
+async function initializareButonModificare() {
+    const modificare = document.querySelector('#buton-modificare')
+    const id = document.querySelector('#id-input-mod')
+    const src = document.querySelector('#sursa-input-mod')
+    const src_img = document.querySelector('#link-input-mod')
+    const alt = document.querySelector('#descriere-input-mod')
+
+    modificare.onclick = function (event) {
+        event.preventDefault()
+
+        if (!src_img.value) {
+            alert('Link-ul imaginii nu trebuie sa fie gol!')
+            return
+        }
+
+        fetch(`http:\\\\localhost:3000\\api\\v1\\meme\\${id.value}\\update`, {
+            method: 'POST',
+            mode: 'cors',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                src: src.value,
+                src_img: src_img.value,
+                alt: alt.value
+            })
+        }).then(() => adaugaDateTabel()).catch((err) => {
+            alert("Nu s-au putut trimit datele!")
+            console.log(err)
+        })
+    }
+}
+
 window.onload = () => {
     adaugaDateTabel()
-    initilizareButonSalver()
+    initializareButonSalvare()
+    initializareButonModificare()
 }
