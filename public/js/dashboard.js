@@ -42,12 +42,13 @@ function creazaRandTabel(dateRand) {
         const src = document.querySelector('#sursa-input-mod')
         const src_img = document.querySelector('#link-input-mod')
         const alt = document.querySelector('#descriere-input-mod')
+        const formular = document.querySelector('#form-modifica')
 
         id.value = dateRand.id;
         src.value = dateRand.src;
         src_img.value = dateRand.src_img;
         alt.value = dateRand.alt;
-
+        formular.style.display = "flex"
     }
 
     const grup = document.createElement('td');
@@ -76,9 +77,9 @@ async function adaugaDateTabel() {
         <thead>
             <tr>
             <th class="id-tabel">ID</th>
-            <th>src</th>
-            <th>src_img</th>
-            <th>alt_img</th>
+            <th>Sursa imaginii</th>
+            <th>Link imagine</th>
+            <th>Descriere</th>
             <th>Actiuni</th>
             </tr>
         </thead>
@@ -100,6 +101,15 @@ async function initializareButonSalvare() {
     const src = document.querySelector('#sursa-input')
     const src_img = document.querySelector('#link-input')
     const alt = document.querySelector('#descriere-input')
+
+    src_img.addEventListener("input", function(event) {
+        console.log(event.target)
+        if ( ! event.target.value ) {
+            salvare.disabled = true
+        } else {
+            salvare.disabled = false
+        }
+    }) 
 
     if (salvare && src && src_img && alt) {
         // preia datele din formular
@@ -129,7 +139,12 @@ async function initializareButonSalvare() {
                         src_img: src_img.value,
                         alt: alt.value
                     })
-                }).then(() => adaugaDateTabel()).catch((err) => {
+                }).then(() => {
+                    adaugaDateTabel()
+                    src.value = ""
+                    src_img.value = ""
+                    alt.value = ""
+                }).catch((err) => {
                     alert("Nu s-au putut trimit datele!")
                     console.log(err)
                 })
@@ -152,6 +167,9 @@ async function initializareButonModificare() {
     const src = document.querySelector('#sursa-input-mod')
     const src_img = document.querySelector('#link-input-mod')
     const alt = document.querySelector('#descriere-input-mod')
+
+    const formular = document.querySelector('#form-modifica')
+    formular.style.display = "none"
 
     modificare.onclick = function (event) {
         event.preventDefault()
@@ -180,7 +198,14 @@ async function initializareButonModificare() {
                     src_img: src_img.value,
                     alt: alt.value
                 })
-            }).then(() => adaugaDateTabel()).catch((err) => {
+            }).then(() => {
+                adaugaDateTabel()
+                formular.style.display = "none"
+                id.value = ""
+                src.value = ""
+                src_img.value = ""
+                alt.value = ""
+            }).catch((err) => {
                 alert("Nu s-au putut trimit datele!")
                 console.log(err)
             })

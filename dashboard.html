@@ -49,20 +49,32 @@
         <h3>Adauga un meme</h3>
         <hr />
         <div class="optiune-formular">
-          <label>Sursa</label>
-          <input id="sursa-input" name="src" />
+          <label>Sursa imaginii (optional)</label>
+          <input
+            id="sursa-input"
+            name="src"
+            placeholder="Introduceti site-ul de pe care a-ti luat imaginea"
+          />
         </div>
         <div class="optiune-formular">
           <label>Link imagine</label>
-          <input id="link-input" name="src_img" />
+          <input
+            id="link-input"
+            name="src_img"
+            placeholder="Link-ul imaginii pe care doriti s-o postati"
+          />
         </div>
         <div class="optiune-formular">
-          <label>Descriere</label>
-          <input id="descriere-input" name="alt" />
+          <label>Descriere (optional)</label>
+          <input
+            id="descriere-input"
+            name="alt"
+            placeholder="O scurta descriere despre imagine pentru persoanele nevazatoare"
+          />
         </div>
-        <button id="buton-salvare" type="submit">Salveaza</button>
+        <button id="buton-salvare" type="submit" disabled>Salveaza</button>
       </form>
-      <form class="formular modifica">
+      <form class="formular modifica" id="form-modifica">
         <h3>Modifica un meme</h3>
         <hr />
         <div class="optiune-formular">
@@ -70,7 +82,7 @@
           <input id="id-input-mod" readonly name="id" />
         </div>
         <div class="optiune-formular">
-          <label>Sursa</label>
+          <label>Sursa imaginii</label>
           <input id="sursa-input-mod" name="src" />
         </div>
         <div class="optiune-formular">
