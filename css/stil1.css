@@ -1,0 +1,277 @@
+/*
+
+Culoare 1: #F9DB6D
+Culoare 2: #464D77 
+Culoare 3: #F7FFF7
+Culoare 4: 
+*/
+
+html {
+  background-color: #f4eded;
+}
+
+a {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  padding: 20px;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    padding-left: 20%;
+    padding-right: 20%;
+
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+}
+
+#antet {
+  margin: 50px;
+  background-color: #f9db6d;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#antet h1 {
+  width: 100%;
+  text-align: center;
+  font-family: "Sansita Swashed", cursive;
+}
+
+#antet p {
+  width: 100%;
+  text-align: center;
+}
+
+#main {
+  background-color: #f7fff7;
+  padding: 40px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.menu {
+  /* background-color: white; */
+  padding: 20px 20px;
+  /* position: sticky; */
+  display: flex;
+  justify-content: center;
+  top: 0px;
+  left: 0px;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.menu-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #464d77;
+}
+
+.menu-list li {
+  float: left;
+}
+
+.menu-list li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.menu-list li a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu div {
+  width: max-content;
+  background-color: #464d77;
+  margin: 0;
+  display: inline-flex;
+}
+
+.menu div a:hover {
+  background-color: green;
+}
+
+.menu div a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 10px;
+  display: inline-block;
+}
+
+.menu div p {
+  color: white;
+  text-decoration: none;
+  padding: 10px 0px;
+  display: inline-block;
+  margin: 0px;
+}
+
+.lista-memes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  height: max-content;
+  margin: 10px;
+  border: 2px solid black;
+  border-radius: 2px;
+  box-shadow: 3px 2px 5px teal;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.card:hover {
+  box-shadow: 5px 3px 5px orange;
+}
+
+.card img {
+  max-width: 300px;
+}
+
+.card .container {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.card .container a {
+  font-family: "IBM Plex Mono", monospace;
+  padding-left: 3px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: max-content;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+footer {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #dae3e5;
+}
+
+.admin-tabel {
+  border: 2px solid black;
+  border-collapse: collapse;
+  margin: 30px;
+  width: 80%;
+  text-align: center;
+  background-color: #f7f7ff;
+}
+
+.admin-tabel thead th {
+  text-align: center;
+  font-size: 20px;
+}
+
+.admin-tabel tbody td {
+  min-width: 50px;
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.admin-tabel tbody th {
+  width: 30px;
+  text-align: right;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.admin-tabel tbody td img {
+  max-width: 100px;
+}
+
+.admin-tabel caption {
+  font-size: 30px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.modifica {
+  background: #dae3e5;
+}
+
+.adauga {
+  background-color: #f7f9f7;
+}
+
+.formular {
+  margin: 30px;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.optiune-formular {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.optiune-formular input {
+  border: 1px solid black;
+  font-family: "IBM Plex Mono", monospace;
+  padding: 5px;
+}
+
+.formular button {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  max-width: 120px;
+  margin: 5px;
+}
+
+.buton-modificare {
+  margin: 5px;
+  background-color: yellow;
+  padding: 7px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.buton-stergere {
+  margin: 5px;
+  background-color: red;
+  padding: 7px;
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+}
+
+hr {
+  width: 100%;
+}

@@ -1,0 +1,180 @@
+/*
+
+Culoare 1: #E9F1F7
+Culoare 2: #D1AC00 
+Culoare 3: #EAF4F4
+Culoare 4: #F6BE9A
+*/
+
+html {
+    background-color: #FAF4D3;
+  }
+  
+  a {
+    font-family: "Roboto", sans-serif;
+  }
+  
+  body {
+    padding: 20px;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    body {
+      padding-left: 20%;
+      padding-right: 20%;
+  
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+  }
+  
+  #antet {
+    margin: 50px;
+    background-color: #E9F1F7;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #antet h1 {
+    width: 100%;
+    text-align: center;
+    font-family: "Sansita Swashed", cursive;
+  }
+  
+  #antet p {
+    width: 100%;
+    text-align: center;
+  }
+  
+  #main {
+    background-color: #EAF4F4;
+    padding: 40px;
+    border-radius: 10px;
+  }
+  
+  .menu-list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #D1AC00;
+  }
+  
+  .menu-list li {
+    float: left;
+  }
+  
+  .menu-list li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .menu-list li a:hover {
+    background-color:rgba(0, 0, 0, 0.1);
+  }
+
+  .menu {
+    /* background-color: white; */
+    padding: 20px 20px;
+    /* position: sticky; */
+    display: flex;
+    justify-content: center;
+    top: 0px;
+    left: 0px;
+    margin: 20px;
+    font-size: 20px;
+  }
+  
+  .menu div {
+    width: max-content;
+    background-color: #D1AC00;
+    margin: 0;
+    display: inline-flex;
+  }
+  
+  .menu div a:hover {
+    background-color:rgba(0, 0, 0, 0.2);;
+  }
+  
+  .menu div a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    display: inline-block;
+  }
+  
+  .menu div p {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0px;
+    display: inline-block;
+    margin: 0px;
+  }
+  
+  .lista-memes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    height: max-content;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 2px;
+    box-shadow: 3px 2px 5px teal;
+    font-family: "IBM Plex Mono", monospace;
+  }
+  
+  .card:hover {
+    box-shadow: 5px 3px 5px orange;
+  }
+  
+  .card img {
+    max-width: 300px;
+  }
+  
+  .card .container {
+    display: inline-flex;
+    align-items: center;
+    padding-left: 5px;
+  }
+  
+  .card .container a {
+    font-family: "IBM Plex Mono", monospace;
+    padding-left: 3px;
+  }
+  
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: max-content;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  
+  footer {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F6BE9A;
+  }
